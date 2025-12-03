@@ -154,6 +154,44 @@ function App() {
         </div>
         <button onClick={calculatePhase}>РАССЧИТАТЬ</button>
       </div>
+
+      {loading && <div className="loader"></div>}
+
+      {result && (
+        <div className="results">
+          <div>
+            <p>Возраст Луны (дней)</p>
+            <h2>{result.age}</h2>
+          </div>
+          <div>
+            <p>Возраст луны (процентов от полной)</p>
+            <h2>{result.percent} %</h2>
+          </div>
+          <div>
+            <p>Фаза луны</p>
+            <h2>{result.phase}</h2>
+          </div>
+          <div>
+            <p>Направление</p>
+            <h2>{result.direction}</h2>
+          </div>
+        </div>
+      )}
+
+      <div className='other'>
+        <div>
+          <img src={CopyImage} alt="copy" className="copy-logo" />
+          <p>ССЫЛКА</p>
+        </div>
+        <div>
+          <img src={SaveImage} alt="save" className="save-logo" />
+          <p>СОХРАНИТЬ</p>
+        </div>
+        <div>
+          <img src={WidgetImage} alt="widget" className="widget-logo" />
+          <p>ВИДЖЕТ</p>
+        </div>
+      </div>
     </>
   )
 }
