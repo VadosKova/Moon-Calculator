@@ -78,6 +78,16 @@ function App() {
     });
   }
 
+  useEffect(() => {
+    setLoading(true);
+    const timer = setTimeout(() => {
+      calculatePhase();
+      setLoading(false);
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, [day, month, year, precision]);
+
   return (
     <>
       
