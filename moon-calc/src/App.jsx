@@ -90,7 +90,51 @@ function App() {
 
   return (
     <>
-      
+      <div className='calculator'>
+        <div className="header">
+          <div className="logo-container">
+            <img src={LogoImage} alt="logo" className="logo" />
+          </div>
+          <h1>Фаза луны</h1>
+        </div>
+
+        <div className="options">
+          <div className="date-select">
+            <label>Григорианская дата</label>
+            <div className="selectors">
+
+              <div className="select-wrapper">
+                <select value={day} onChange={(e) => setDay(e.target.value)}>
+                  {[...Array(31)].map((_, i) => (
+                    <option key={i}>{i + 1}</option>
+                  ))}
+                </select>
+              </div>
+
+              <div className="select-wrapper">
+                <select value={month} onChange={(e) => setMonth(e.target.value)}>
+                  {[
+                    "января", "февраля", "марта", "апреля", "мая", "июня",
+                    "июля", "августа", "сентября", "октября", "ноября", "декабря",
+                  ].map((m) => (
+                    <option key={m}>{m}</option>
+                  ))}
+                </select>
+              </div>
+
+              <div className="select-wrapper">
+                <select value={year} onChange={(e) => setYear(e.target.value)}>
+                  {Array.from({ length: 50 }, (_, i) => 1980 + i).map((y) => (
+                    <option key={y}>{y}</option>
+                  ))}
+                </select>
+              </div>
+
+            </div>
+          </div>
+        </div>
+
+      </div>
     </>
   )
 }
