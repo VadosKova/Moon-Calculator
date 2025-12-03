@@ -129,11 +129,30 @@ function App() {
                   ))}
                 </select>
               </div>
-
             </div>
           </div>
         </div>
+        
+        <div className="precision">
+          <label>
+            Точность вычисления <br />
+            <span>Знаков после запятой: {precision}</span>
+          </label>
+          <input
+            type="range"
+            min="0"
+            max="10"
+            value={precision}
+            onChange={(e) => {
+              const val = Number(e.target.value);
+              setPrecision(val);
 
+              const percent = (val / 10) * 100;
+              e.target.style.setProperty("--value", `${percent}%`);
+            }}
+          />
+        </div>
+        <button onClick={calculatePhase}>РАССЧИТАТЬ</button>
       </div>
     </>
   )
